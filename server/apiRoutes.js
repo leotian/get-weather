@@ -3,6 +3,6 @@ import service from './service';
 
 const router = express.Router();
 
-router.get('/getProvince', service.download);
+router.get('/getWeather/:date', service.download);
 
 export default router;

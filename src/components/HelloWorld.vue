@@ -5,6 +5,7 @@
       align="right"
       type="date"
       placeholder="选择日期"
+      value-format="yyyy-MM-dd"
       :picker-options="pickerOptions1">
     </el-date-picker>
     <el-button type="primary" @click="download">
@@ -15,6 +16,8 @@
 </template>
 
 <script>
+  import axios from 'axios'
+
   export default {
     name: 'HelloWorld',
     data() {
@@ -41,8 +44,16 @@
       }
     },
     methods: {
-      download(){
+      download() {
         if (!this.value) this.$message.error('请选择日期')
+        axios({
+          method: 'get',
+          url: `/api/getWeather/${this.value}`,
+        }).then((res) => {
+          console.log(res.data)
+        }).catch(() => {
+          console.log('获取下载链接')
+        })
       }
     },
   }
@@ -53,9 +64,10 @@
   a {
     color: #111111;
   }
+
   .disclaimer {
     position: absolute;
-    bottom: 0;
+    bottom: 20px;
     width: 100%;
   }
 </style>
