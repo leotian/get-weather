@@ -22,14 +22,10 @@
       return {
         pickerOptions1: {
           disabledDate(time) {
-            return time.getTime() > Date.now();
+            const date = new Date();
+            return time.getTime() > date.setTime(date.getTime() - 3600 * 1000 * 24);
           },
           shortcuts: [{
-            text: '今天',
-            onClick(picker) {
-              picker.$emit('pick', new Date());
-            }
-          }, {
             text: '昨天',
             onClick(picker) {
               const date = new Date();

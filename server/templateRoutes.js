@@ -12,7 +12,7 @@ router.get('/',  async (req, res) => {
     res.send(ret.data);
   } else {
     res.setHeader('Content-Type', 'text/html');
-    res.sendfile(`${__dirname}/dist/index.html`);
+    res.sendfile(`${process.cwd()}/dist/index.html`);
   }
 })
 
