@@ -16,8 +16,6 @@
 </template>
 
 <script>
-  import axios from 'axios'
-
   export default {
     name: 'HelloWorld',
     data() {
@@ -45,15 +43,8 @@
     },
     methods: {
       download() {
-        if (!this.value) this.$message.error('请选择日期')
-        axios({
-          method: 'get',
-          url: `/api/getWeather/${this.value}`,
-        }).then((res) => {
-          console.log(res.data)
-        }).catch(() => {
-          console.log('获取下载链接')
-        })
+        if (!this.value) return this.$message.error('请选择日期')
+        window.open(`/api/getWeather/${this.value}`)
       }
     },
   }
