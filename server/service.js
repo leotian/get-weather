@@ -28,7 +28,7 @@ export default {
           const rawCSV = weatherList.join('\n')
           res.set('Content-Description', 'File Transfer')
           res.set('Content-Type', 'application/csv; charset=utf-8')
-          res.set('Content-Disposition', 'attachment; filename=data.csv')
+          res.set('Content-Disposition', `attachment; filename=${date}.csv`)
           res.set('Expires', '0')
           res.set('Cache-Control', 'must-revalidate');
           res.send(rawCSV);
