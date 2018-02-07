@@ -1365,9 +1365,4 @@ export const cities = [
   },
 ];
 
-export const EXPORTTABLE = '\ufeff城市,日期,白天温度,夜间温度,白天天气,夜间天气'
-
-export default {
-  cities,
-  EXPORTTABLE,
-};
+export const EXPORTTABLE = '\ufeff城市,日期,白天温度,夜间温度,白天天气,夜间天气';
