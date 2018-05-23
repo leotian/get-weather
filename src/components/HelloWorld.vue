@@ -9,7 +9,10 @@
       :picker-options="pickerOptions1">
     </el-date-picker>
     <el-button type="primary" @click="download">
-      下载
+      历史天气下载
+    </el-button>
+    <el-button type="primary" @click="downloadForecast">
+      未来7天天气下载
     </el-button>
     <div class="disclaimer">Created by <a href="https://leotian.cn/">Leo.Tian</a></div>
   </div>
@@ -41,7 +44,10 @@
       download() {
         if (!this.value) return this.$message.error('请选择日期')
         window.open(`/api/getWeather/${this.value}`)
-      }
+      },
+      downloadForecast() {
+        window.open(`/api/getForecast`)
+      },
     },
   }
 </script>
